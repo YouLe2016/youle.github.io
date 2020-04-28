@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>乐哥哥的网站</title>
+    <script src="https://cdn.bootcss.com/axios/0.19.2/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"></script>
+    <!--解决闪烁问题, 可以忽略这个问题-->
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app" v-cloak>
+    <div>编号: {{info.id}}</idv>
+        <div>姓名: {{info.name}}</div>
+        <div>年龄: {{info.age}}</div>
+        <div>链接: <a v-bind:href="info.links[0].url">{{info.links[0].name}}</a></div>
+    </div>
+</div>
+
+<script>
+    let vue = new Vue({
+        el: "#app",
+        data: {
+            info: {
+                id: "007",
+                name: "乐哥哥",
+                age: 28,
+                links: [
+                    {
+                        name: "百度",
+                        url: "https://www.baidu.com"
+                    },
+                ]
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
