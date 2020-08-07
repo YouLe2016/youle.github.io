@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>探索趣图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none
+        }
+
+        a {
+            text-decoration: none;
+            color: #666;
+        }
+
+        img {
+            display: block;
+        }
+
+        #box {
+            width: 240px;
+            border: 1px solid #ccc;
+            border-top: 2px solid orange;
+            margin: 60px auto;
+            padding-bottom: 8px;
+        }
+
+        #box .title {
+            font-size: 16px;
+            font-weight: normal;
+            padding: 12px 8px;
+            display: block;
+            border-bottom: 1px solid #ccc;
+        }
+
+        #box .title a {
+            color: black;
+        }
+
+        #box .title a:hover {
+            color: orange;
+        }
+
+        #box img {
+            width: 218px;
+            height: 160px;
+            margin: 8px auto 0 auto;
+        }
+
+        #box ul li {
+            font-size: 12px;
+            padding: 8px 8px 8px 16px ;
+            position: relative;
+        }
+
+        #box ul li:first-child {
+            border-bottom: 1px solid #ccc;
+        }
+
+        #box ul li:before {
+            content: "";
+            display: block;
+            width: 3px;
+            height: 3px;
+            background: orange;
+            position: absolute;
+            top: 45%;
+            left: 8px;
+        }
+
+        #box ul li a:hover {
+            color: orange;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box">
+    <h3 class="title"><a href="#">探索趣图</a></h3>
+    <img src="imgs/image.gif" alt="">
+    <ul>
+        <li><a href="">GIF：这放羊方法可以的</a></li>
+        <li><a href="">超5000人伤亡，硝酸铵为何如此恐怖？</a></li>
+        <li><a href="">Ⅲ级预警！内蒙古包头出现鼠疫死亡病例</a></li>
+    </ul>
+</div>
+
+
+</body>
+</html>
