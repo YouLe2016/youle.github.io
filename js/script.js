@@ -55,7 +55,8 @@ function snow(){
 
 //Countdown timer
 //11am on December 25th
-const countDownDate = new Date("Jan 1, 2021, 00:00:00").getTime();
+// "Jan 1, 2021, 00:00:00"
+const countDownDate = new Date("2021-3-1 00:00:00").getTime();
 
 const x = setInterval(function(){
     //Today's date + time
