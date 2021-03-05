@@ -1,0 +1,108 @@
+header {
+    width: 100%;
+    min-width: 1200px;
+    height: 44px;
+    background-color: #0092d8;
+}
+
+main {
+    min-width: 1200px;
+}
+
+header .log {
+    width: 120px;
+    height: 100%;
+    background: url(../img/logo_icon.png) -80px 0;
+    background-size: 200px 80px;
+}
+
+header ul {
+    height: 100%;
+}
+
+header li {
+    float: left;
+    height: 100%;
+}
+
+.top-nav a {
+    display: block;
+    line-height: 44px;
+    padding: 0 30px;
+}
+
+.top-info li {
+    box-sizing: border-box;
+    padding: 12px 20px 0;
+}
+
+.icon_meidi {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url(../img/img_icon.png);
+    cursor: pointer;
+}
+
+.top-info .serach_box {
+    padding: 0;
+    width: 60px;
+    position: relative;
+    transition: width .5s ease-out;
+}
+
+.serach_box input {
+    width: 0;
+    height: 100%;
+    border: none;
+    text-indent: 30px;
+    opacity: 0;
+}
+
+.serach_box:hover {
+    width: 255px;
+}
+
+.serach_box:hover input {
+    opacity: 1;
+    width: 100%;
+}
+
+.search {
+    background-position: -96px -215px;
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    right: 10px;
+}
+
+.serach_box:hover .search {
+    background-position: -66px -215px;
+    left: 5px;
+    top: 50%;
+    margin-top: -10px;
+}
+
+.mobile {
+    background-position: -120px -215px;
+}
+
+.car {
+    background-position: -146px -215px
+}
+
+.user {
+    background-position: -35px -216px;
+}
+
+.user_box span {
+    margin-left: 5px;
+    color: white
+}
+
+p {
+    background-color: rgb(0, 59, 102);
+    font-size: 12px;
+    color: white;
+    padding: 4px;
+}

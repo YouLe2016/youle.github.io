@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>乐哥哥的网站</title>
+    <script src="https://cdn.bootcss.com/axios/0.19.2/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"></script>
+
+    <style>
+        /*解决闪烁问题, 可以忽略这个问题*/
+        [v-cloak] {
+            display: none;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #app {
+            position: absolute;
+            font-family: 'Avenir', Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            color: white;
+            margin-top: 40px;
+            padding-left: 20px;
+            font-size: 20px;
+        }
+
+        h2 {
+            margin-bottom: 16px;
+            color:deepskyblue;
+        }
+
+        ol {
+            margin-left: 32px;
+        }
+
+        footer {
+            font-size: 26px;
+            color: pink;
+        }
+
+        .favorite {
+            color: #cccccc;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="app" v-cloak>
+    <h2>
+        HTML5、CSS3
+    </h2>
+    <div>
+        demo:
+        <ol>
+            <li v-for="item in info.links">
+                <a v-bind:href="item.url" class="favorite">{{item.name}}</a>
+            </li>
+        </ol>
+    </div>
+    <br/><br/>
+    <footer>欢迎您的光临</footer>
+</div>
+<canvas id="matrix" height="100%" width="100%"></canvas>
+
+<script type="text/javascript">
+    //文字
+    var txts = "0123456789!@#$%^&*()~_+℃☆○※";
+    //转为数组
+    txts = txts.split("");
+    var matrix = document.getElementById("matrix");
+    var context = matrix.getContext("2d");
+    matrix.height = window.innerHeight;
+    matrix.width = window.innerWidth;
+    var drop = [];
+    var font_size = 24;
+    var columns = matrix.width / font_size;
+    for (var i = 0; i < columns; i++)
+        drop[i] = 1;
+
+    function drawMatrix() {
+        context.fillStyle = "rgba(0, 0, 0, 0.09)";
+        context.fillRect(0, 0, matrix.width, matrix.height);
+
+        context.fillStyle = "green";
+        context.font = font_size + "px";
+        for (var i = 0; i < columns; i++) {
+            //随机取要输出的文字
+            var text = txts[Math.floor(Math.random() * txts.length)];
+            //输出文字，注意坐标的计算
+            context.fillText(text, i * font_size, drop[i] * font_size);/*get 0 and 1*/
+
+            if (drop[i] * font_size > (matrix.height * 2 / 3) && Math.random() > 0.95)/*reset*/
+                drop[i] = 0;
+            drop[i]++;
+        }
+    }
+
+    setInterval(drawMatrix, 33);
+</script>
+<script>
+    let vue = new Vue({
+        el: "#app",
+        data: {
+            info: {
+                links: [
+                    {
+                        name: "三角形",
+                        url: "01三角形.html"
+                    },
+                    {
+                        name: "旋转",
+                        url: "02旋转.html"
+                    },
+                    {
+                        name: "图片放大",
+                        url: "03图片放大.html"
+                    },
+                    {
+                        name: "分页按钮",
+                        url: "04分页按钮.html"
+                    },
+                    {
+                        name: "热点图",
+                        url: "05热点图.html"
+                    },
+                    {
+                        name: "奔跑的小熊",
+                        url: "06奔跑的小熊.html"
+                    },
+                    {
+                        name: "两面翻转的盒子",
+                        url: "07两面翻转的盒子.html"
+                    },
+                    {
+                        name: "3D导航栏",
+                        url: "083D导航栏.html"
+                    },
+                    {
+                        name: "旋转木马",
+                        url: "09旋转木马.html"
+                    },
+                    {
+                        name: "美的导航栏",
+                        url: "09美的导航栏/index.html"
+                    },
+                    {
+                        name: "小米产品",
+                        url: "10小米产品/index.html"
+                    },
+                    {
+                        name: "beats耳机按钮",
+                        url: "11beats耳机按钮/index.html"
+                    },
+                ]
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
+

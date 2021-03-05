@@ -1,5 +1,5 @@
 //Snowflakes
-function snow(){
+function snow() {
     const canvas = document.getElementById("background");
     const ctx = canvas.getContext("2d");
 
@@ -12,43 +12,44 @@ function snow(){
     let numberFlakes = 400;
     let snowflakes = [];
 
-    for(let i = 0; i < numberFlakes; i++){
+    for (let i = 0; i < numberFlakes; i++) {
         snowflakes.push({
-            x: Math.random()*width,
-            y: Math.random()*height,
-            r: Math.random()*3+1,
+            x: Math.random() * width,
+            y: Math.random() * height,
+            r: Math.random() * 3 + 1,
             d: Math.random() + 2
         })
     }
 
     //Draw the snowflakes
-    function drawFlakes(){
+    function drawFlakes() {
         ctx.clearRect(0, 0, width, height);
         ctx.fillStyle = "white";
         ctx.beginPath();
 
-        for(let i = 0; i < numberFlakes; i++){
+        for (let i = 0; i < numberFlakes; i++) {
             let sf = snowflakes[i];
             ctx.moveTo(sf.x, sf.y);
-            ctx.arc(sf.x, sf.y, sf.r, 0, Math.PI*2, true);
+            ctx.arc(sf.x, sf.y, sf.r, 0, Math.PI * 2, true);
         }
         ctx.fill();
         moveFlakes();
     }
 
     //Move the snowflakes
-    function moveFlakes(){
-        for(let i = 0; i < numberFlakes; i++){
+    function moveFlakes() {
+        for (let i = 0; i < numberFlakes; i++) {
             let sf = snowflakes[i];
             sf.y += Math.pow(sf.d, 2) + 1;
 
-            if(sf.y > height){
+            if (sf.y > height) {
                 snowflakes[i] = {
-                    x: Math.random()*width, y: 0, r: sf.r, d: sf.d
+                    x: Math.random() * width, y: 0, r: sf.r, d: sf.d
                 };
             }
         }
     }
+
     //Snowflake animation
     setInterval(drawFlakes, 26);
 }
@@ -56,22 +57,22 @@ function snow(){
 //Countdown timer
 //11am on December 25th
 // "Jan 1, 2021, 00:00:00"
-const countDownDate = new Date("2021-3-1 00:00:00").getTime();
+const countDownDate = new Date("2021-4-1 00:00:00").getTime();
 
-const x = setInterval(function(){
+const x = setInterval(function () {
     //Today's date + time
     let now = new Date().getTime();
     let distance = countDownDate - now;
 
     //Calculations for days/hours/minutes/seconds
-    let days = Math.floor(distance / (1000*60*60*24));
-    let hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
-    let minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
-    let seconds = Math.floor((distance % (1000*60)) / 1000);
+    let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     document.getElementById("countdown").innerHTML = days + "天 " + hours + "时" + minutes + "分" + seconds + "秒";
 
-    if(distance < 0){
+    if (distance < 0) {
         clearInterval(x);
         document.getElementById("message").innerHTML = "Happy new year!";
         document.getElementById("countdown").innerHTML = "- 0 - 0 - 0 - 0 -"

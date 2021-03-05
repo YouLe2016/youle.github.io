@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05热点图</title>
+    <style>
+        body {
+            background-color: #333;
+        }
+        
+        .map {
+            width: 747px;
+            height: 617px;
+            background: url('img/map.png');
+            margin: 100px auto;
+            position: relative;
+        }
+        
+        div[class^='city'] {
+            border-radius: 50%;
+            position: absolute;
+        }
+        
+        .city {
+            top: 227px;
+            right: 193px;
+        }
+        
+        .city2_2 {
+            top: 530px;
+            right: 195px;
+        }
+        
+        .city3 {
+            top: 500px;
+            right: 80px;
+        }
+        
+        .dotted {
+            width: 8px;
+            height: 8px;
+            background-color: #09f;
+            border-radius: 50%;
+        }
+        
+        div[class^='city'] div[class^='ripple'] {
+            width: 8px;
+            height: 8px;
+            box-shadow: 0 0 12px #009dfd;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* animation: ripple 1.2s ease-in delay iteration-count direction fill-mode; */
+            animation: ripple 1.5s ease-in infinite;
+        }
+        
+        div[class$='_2'] div[class^='ripple'] {
+            top: 0;
+            left: 0;
+            animation: ripple2 1.5s ease-in infinite;
+            transform: translate(0, 0);
+        }
+        
+        .ripple2 {
+            animation-delay: 0.4s !important;
+        }
+        
+        .ripple3 {
+            animation-delay: 0.8s !important;
+        }
+        
+        @keyframes ripple {
+            70% {
+                width: 40px;
+                height: 40px;
+            }
+            100% {
+                width: 70px;
+                height: 70px;
+            }
+        }
+        
+        @keyframes ripple2 {
+            70% {
+                transform: scale(5);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(9);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="map">
+        <div class="city">
+            <div class="dotted"></div>
+            <div class="ripple1"></div>
+            <div class="ripple2"></div>
+            <div class="ripple3"></div>
+        </div>
+        <div class="city2_2">
+            <div class="dotted"></div>
+            <div class="ripple1"></div>
+            <div class="ripple2"></div>
+            <div class="ripple3"></div>
+        </div>
+        <div class="city3">
+            <div class="dotted"></div>
+            <div class="ripple1"></div>
+            <div class="ripple2"></div>
+            <div class="ripple3"></div>
+        </div>
+    </div>
+</body>
+
+</html>

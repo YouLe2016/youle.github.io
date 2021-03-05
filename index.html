@@ -2,6 +2,7 @@
 <html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>乐哥哥的网站</title>
     <script src="https://cdn.bootcss.com/axios/0.19.2/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"></script>
@@ -23,13 +24,14 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             color: white;
-            margin-top: 60px;
+            margin-top: 40px;
             padding-left: 20px;
             font-size: 20px;
         }
 
-        h1 {
+        h2 {
             margin-bottom: 16px;
+            color:deepskyblue;
         }
 
         ul {
@@ -38,18 +40,38 @@
 
         footer {
             font-size: 26px;
+            color: pink;
         }
 
         .favorite {
             color: #cccccc;
         }
 
+        .font48 {
+            font-size: 48px;
+        }
+        .blue {
+            color: rgb(66,133,244);
+        }
+        .red {
+            color: rgb(234,67,53);
+        }
+        .orange {
+            color: rgb(251,188,5);
+        }
+        .green {
+            color: rgb(52,168,83);
+        }
+
+
     </style>
 </head>
 <body>
 
 <div id="app" v-cloak>
-    <h1>乐哥哥的网站</h1>
+    <h2>
+        <span class="font48 blue">乐</span><span class="red">哥</span><span class="orange">哥</span><span class="blue">的</span><span class="green">网</span><span class="red">站</span>
+    </h2>
     <div>姓名: {{info.name}}</div>
     <div>年龄: {{info.age}}</div>
     <div>爱好: {{info.hobby}}</div>
@@ -110,18 +132,18 @@
                 age: 28,
                 hobby: "电影, 歌曲, 码代码",
                 links: [
-                    {
-                        name: "百度",
-                        url: "https://www.baidu.com"
-                    },
+					{
+						name: "3月倒计时",
+						url: "index2.html"
+					},
                     {
                         name: "歌曲",
                         url: "http://lcoc.top/666/"
                     },
-					{
-						name: "2月倒计时",
-						url: "index2.html"
-					},
+                    {
+                        name: "HTML5、CSS3",
+                        url: "html5css3/index.html"
+                    },
                     {
                         name: "小案例：新浪趣图",
                         url: "02新浪趣图/index.html"

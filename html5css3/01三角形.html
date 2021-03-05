@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三角形案例</title>
+    <style>
+        div {
+            width: 250px;
+            height: 30px;
+            border: 1px solid black;
+            position: relative;
+        }
+        
+        div::after {
+            content: "";
+            width: 10px;
+            height: 10px;
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+            line-height: 30px;
+            position: absolute;
+            right: 8px;
+            top: 8px;
+            transform: rotate(45deg);
+            transition: all .3s;
+        }
+        
+        div:hover::after {
+            transform: rotate(225deg);
+        }
+    </style>
+</head>
+
+<body>
+    <p>本案例主要练习旋转</p>
+    <div></div>
+</body>
+
+</html>
