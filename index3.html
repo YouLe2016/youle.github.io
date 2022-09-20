@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>乐哥哥的网站</title>
+    <script src="https://cdn.bootcss.com/axios/0.19.2/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"></script>
+
+    <style>
+        /*解决闪烁问题, 可以忽略这个问题*/
+        [v-cloak] {
+            display: none;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #app {
+            position: absolute;
+            font-family: 'Avenir', Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            color: white;
+            margin-top: 40px;
+            padding-left: 20px;
+            font-size: 20px;
+        }
+
+        h2 {
+            margin-bottom: 16px;
+            color:deepskyblue;
+        }
+
+        ul {
+            margin-left: 32px;
+        }
+
+        footer {
+            font-size: 26px;
+            color: pink;
+        }
+
+        .favorite {
+            color: #cccccc;
+        }
+
+        .font48 {
+            font-size: 48px;
+        }
+        .blue {
+            color: rgb(66,133,244);
+        }
+        .red {
+            color: rgb(234,67,53);
+        }
+        .orange {
+            color: rgb(251,188,5);
+        }
+        .green {
+            color: rgb(52,168,83);
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div id="app" v-cloak>
+    <h2>
+        <span class="font48 blue">乐</span><span class="red">哥</span><span class="orange">哥</span><span class="blue">的</span><span class="green">网</span><span class="red">站</span>
+    </h2>
+    <div>姓名: {{info.name}}</div>
+    <div>年龄: {{info.age}}</div>
+    <div>爱好: {{info.hobby}}</div>
+    <div>
+        收藏:
+        <ul>
+            <li v-for="item in info.links">
+                <a v-bind:href="item.url" class="favorite">{{item.name}}</a>
+            </li>
+        </ul>
+    </div>
+    <br/><br/>
+    <footer>欢迎您的光临</footer>
+</div>
+<canvas id="matrix" height="100%" width="100%"></canvas>
+
+<script type="text/javascript">
+    //文字
+    var txts = "0123456789!@#$%^&*()~_+℃☆○※";
+    //转为数组
+    txts = txts.split("");
+    var matrix = document.getElementById("matrix");
+    var context = matrix.getContext("2d");
+    matrix.height = window.innerHeight;
+    matrix.width = window.innerWidth;
+    var drop = [];
+    var font_size = 24;
+    var columns = matrix.width / font_size;
+    for (var i = 0; i < columns; i++)
+        drop[i] = 1;
+
+    function drawMatrix() {
+        context.fillStyle = "rgba(0, 0, 0, 0.09)";
+        context.fillRect(0, 0, matrix.width, matrix.height);
+
+        context.fillStyle = "green";
+        context.font = font_size + "px";
+        for (var i = 0; i < columns; i++) {
+            //随机取要输出的文字
+            var text = txts[Math.floor(Math.random() * txts.length)];
+            //输出文字，注意坐标的计算
+            context.fillText(text, i * font_size, drop[i] * font_size);/*get 0 and 1*/
+
+            if (drop[i] * font_size > (matrix.height * 2 / 3) && Math.random() > 0.95)/*reset*/
+                drop[i] = 0;
+            drop[i]++;
+        }
+    }
+
+    setInterval(drawMatrix, 33);
+</script>
+<script>
+    let vue = new Vue({
+        el: "#app",
+        data: {
+            info: {
+                name: "乐哥哥",
+                age: 28,
+                hobby: "电影, 歌曲, 码代码",
+                links: [
+					{
+						name: "3月倒计时",
+						url: "index2.html"
+					},
+                    {
+                        name: "歌曲",
+                        url: "http://lcoc.top/666/"
+                    },
+                    {
+                        name: "HTML5、CSS3",
+                        url: "html5css3/index.html"
+                    },
+                    {
+                        name: "小案例：新浪趣图",
+                        url: "02新浪趣图/index.html"
+                    },
+
+                ]
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
+
